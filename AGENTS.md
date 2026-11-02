@@ -53,6 +53,12 @@
 
 三档定义（见各阶段 `ch<N>/exercises.md`）：及格=跑通最小版；良好=完成扩展要求；挑战=有原创设计并附对比说明。
 
+### 5.1 自动推送豁免（仅限 course-producer）
+
+- **course-producer** 在三道检查全绿且 stage-gate 清单自验 PASS 后，可自动 `git commit + push + tag`；FAIL/UNKNOWN 必须停止推送并上报。
+- 规则文件（本文件、`.opencode/**`）的修改**不适用本豁免**：仍须起草 diff 提请人工合并（RSI 第 5 律不变）。
+- 其余一切 agent 仍无推送权。
+
 ## 6. 门禁命令（唯一标准，CI 与本地同源）
 
 ```bash
