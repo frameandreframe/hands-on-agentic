@@ -3,6 +3,8 @@
 运行：uv run python chat.py
 退出：输入 exit / quit / 退出
 """
+from openai import APIError
+
 from llm_utils import ARK_MODEL, chat
 
 SYSTEM_PROMPT = "你是课程陪练小机器人。回答简洁、准确，一律使用中文。"
@@ -29,7 +31,7 @@ def main() -> None:
         history.append({"role": "user", "content": user})
         try:
             reply = chat(history)
-        except Exception as exc:  # 保持循环存活；阶段 2 会升级为带退避的重试
+        except (APIError, RuntimeError) as exc:  # 保持循环存活；阶段 2 会升级为带退避的重试
             print(f"[调用失败] {type(exc).__name__}（检查密钥/网络后重试）")
             history.pop()
             continue
