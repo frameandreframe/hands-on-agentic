@@ -1,0 +1,15 @@
+[project]
+name = "hands-on-agentic"
+version = "0.1.0"
+description = "动手从 0 构建 Agent —— 阶段 0：点火"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.40",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "jupyterlab>=4",
+]
