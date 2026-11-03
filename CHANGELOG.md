@@ -25,6 +25,12 @@
 - runner 边界兜底经 `# noqa: BLE001` + 书面理由通过静态检查（noqa 纪律：仅限 catch-all 即功能的边界层）
 - test_runner.py 导入格式 I001（自动修复）
 
+### 事故记录（门禁纪律，2026-11-03，如实入库）
+- **W4 首次推送时门禁为红**：制作人 shell 命令链 `pytest | tail -1` 的管道**吞掉了 pytest 退出码**，`&&` 链未刹车，红态混入 commit 2e63e92 并被打了 tag。
+- **处置**：前向修复（2.3 notebook I001，回归测试第四次现场拦截）+ 删除并重打 v0.5.0 至绿态提交。
+- **教训入库**：链式命令里禁止用管道包裹会失败的命令做闸门；要么先跑命令看退出码，要么用 `set -o pipefail`。（Missing Semester「Shell」讲次：exit code 是脚本的神经系统）
+- stage-gate 启示：制作人自验时也必须贴**命令原始退出码**，不能贴管道美化后的输出。
+
 ### Sources（本次设计源泉）
 - 错误分类对照 OpenAI API 错误码（429/5xx 可重试、400 不可）[未实访]
 - agent-expert-outline.md 思维 #6/#9；ReAct 循环恢复思想（Building effective agents，访问 2026-11-02）
