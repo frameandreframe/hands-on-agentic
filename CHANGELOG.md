@@ -13,6 +13,9 @@
 - `.github/workflows/gate.yml`：GitHub 门禁机器人（pytest + ruff）
 - `.opencode/agent/course-producer.md` + `.opencode/command/next-week.md`：周驱动机制；AGENTS.md §5.1 自动推送豁免条款
 - `docs/journal/ch01.md`：学员日志模板（stage-gate 第 9 项要求）
+- `docs/guides/contributing-path.md`：贡献之路——前三次贡献 demo、最小提交与修复教导、贡献阶梯、Missing Semester 2026 融合映射
+- `.opencode/agent/course-producer.md` 增补亲自验证律与 demo 辅助律
+- gate.yml 补推成功，CI 首跑绿（16s）；分支保护实测：PR 需 `gate / test` 必过
 
 ### Sources（本次设计源泉）
 - ReAct: arxiv.org/abs/2210.03629（循环协议）
