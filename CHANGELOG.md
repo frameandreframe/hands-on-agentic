@@ -2,6 +2,14 @@
 
 本文件条目遵守 Keep a Changelog 风格；每条附 Sources（设计源泉，可回源）。
 
+## 周 tag 对应表
+
+| tag | 周 | 内容一句话 |
+|---|---|---|
+| v0.1.0 | 阶段 0 | 点火：LLM 工具函数 + 小机器人 + 密钥保护 |
+| v0.2.0 | W1 | ReAct 循环 + 门禁机器人 + ch01 课程包 |
+| v0.3.0 | W2（计划） | 作业仪式首运转 + regression 首批 + 托管指导 |
+
 ## [v0.2.0] - 2026-11-02
 
 ### Added
@@ -16,6 +24,8 @@
 - `docs/guides/contributing-path.md`：贡献之路——前三次贡献 demo、最小提交与修复教导、贡献阶梯、Missing Semester 2026 融合映射
 - `.opencode/agent/course-producer.md` 增补亲自验证律与 demo 辅助律
 - gate.yml 补推成功，CI 首跑绿（16s）；分支保护实测：PR 需 `gate / test` 必过
+- `ch01-react/walkthrough.md`：验证手记（四层验证金字塔 / 三招实现方式 / 实测记录表，供大家参考）
+- course-producer 增补：验证手记律、周期打 tag 律（附注 tag、周周递增）、核心章节标注律（⭐=内核最小闭环四章）
 
 ### Sources（本次设计源泉）
 - ReAct: arxiv.org/abs/2210.03629（循环协议）
