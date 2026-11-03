@@ -10,7 +10,24 @@
 | v0.2.0 | W1 | ReAct 循环 + 门禁机器人 + ch01 课程包 |
 | v0.3.0 | W2 | regression 首批 + demo 服务化 + 托管指导 + 仪式首运转 |
 | v0.4.0 | W3 | tools 内核 + 打包构建课 + ch02 启动 + smoke.py |
-| v0.5.0 | W4（计划） | ch02 收官（2.3 重试与熔断）+ walkthrough + plan 预备 |
+| v0.5.0 | W4 | ch02 收官：runner 重试/熔断 + 验证手记 |
+| v0.6.0 | W5（计划） | ch03 plan：规划器 + todo 状态机 |
+
+## [v0.5.0] - 2026-11-03
+
+### Added
+- `agent/tools/runner.py`：ToolRunner（Transient/Fatal 错误分类、指数退避、连续失败熔断、半开恢复、wrap 装配）
+- `tests/test_runner.py`（7 条：重试计数/致命不重试/耗尽上报/未分类保守/熔断拦截执行/半开恢复/ReAct 集成）
+- `ch02-tools/2.3-retry-and-errors.ipynb`（重试三铁律 + 死循环反例练习）
+- `ch02-tools/walkthrough.md`：跨周验证手记（三层金字塔 + 真调用脊线 + 四次「门禁抓作者」实录）
+
+### Fixed
+- runner 边界兜底经 `# noqa: BLE001` + 书面理由通过静态检查（noqa 纪律：仅限 catch-all 即功能的边界层）
+- test_runner.py 导入格式 I001（自动修复）
+
+### Sources（本次设计源泉）
+- 错误分类对照 OpenAI API 错误码（429/5xx 可重试、400 不可）[未实访]
+- agent-expert-outline.md 思维 #6/#9；ReAct 循环恢复思想（Building effective agents，访问 2026-11-02）
 
 ## [v0.4.0] - 2026-11-03
 

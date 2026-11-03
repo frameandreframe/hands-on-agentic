@@ -16,12 +16,12 @@ from agent.builtin.calc import calc
 from agent.react import run_react
 from llm_utils import chat
 
-app = FastAPI(title="hands-on-agentic", version="0.4.0")
+app = FastAPI(title="hands-on-agentic", version="0.5.0")
 
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok", "version": "0.4.0"}
+    return {"status": "ok", "version": "0.5.0"}
 
 
 class ChatIn(BaseModel):

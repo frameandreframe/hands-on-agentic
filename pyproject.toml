@@ -1,6 +1,6 @@
 [project]
 name = "hands-on-agentic"
-version = "0.4.0"
+version = "0.5.0"
 description = "动手从 0 构建 Agent —— 阶段 0：点火"
 requires-python = ">=3.10"
 dependencies = [
