@@ -1,5 +1,7 @@
 # ch01 讲义：ReAct——让模型「想一步、做一步、看一步」
 
+> **⭐ 核心章**（内核最小闭环之一：循环。结业必修并纳入答辩。）
+>
 > 体例：Stanford/MIT 课堂随课讲义，PPT 分页式，每页一个主张。
 > Sources: ReAct（arxiv.org/abs/2210.03629）· agent-expert-outline.md 思维 #1/#6/#10 · MIT 6.S191 lab 体例 `[未实访]`
 

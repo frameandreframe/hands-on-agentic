@@ -4,14 +4,17 @@ version = "0.1.0"
 description = "动手从 0 构建 Agent —— 阶段 0：点火"
 requires-python = ">=3.10"
 dependencies = [
+    "fastapi>=0.162.0",
     "openai>=1.40",
     "python-dotenv>=1.0",
+    "uvicorn>=0.54.0",
 ]
 
 [dependency-groups]
 dev = [
     "pytest>=8",
     "jupyterlab>=4",
+    "httpx>=0.28.1",
 ]
 
 [tool.pytest.ini_options]

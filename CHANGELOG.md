@@ -8,7 +8,28 @@
 |---|---|---|
 | v0.1.0 | 阶段 0 | 点火：LLM 工具函数 + 小机器人 + 密钥保护 |
 | v0.2.0 | W1 | ReAct 循环 + 门禁机器人 + ch01 课程包 |
-| v0.3.0 | W2（计划） | 作业仪式首运转 + regression 首批 + 托管指导 |
+| v0.3.0 | W2 | regression 首批 + demo 服务化 + 托管指导 + 仪式首运转 |
+| v0.4.0 | W3（计划） | 打包构建课 + CHANGELOG 工具链 + AGENTS.md 瘦身复查 |
+
+## [v0.3.0] - 2026-11-03
+
+### Added
+- `tests/regression/test_regressions.py`：首批 3 条回归（真实事件回锁：密钥错误 UX / ReAct 垃圾输入存活 / notebook ruff 事故）
+- `demo/main.py` + `tests/test_demo.py`：FastAPI 服务化（/health + /chat，TestClient 注入假 LLM；本地真调用实测答案 27）
+- `docs/guides/demo-hosting.md`：托管对比表（HF Spaces 主推）+ GitHub 主页挂载路径 + 卡点预告
+- `docs/journal/ch01-review.md`：作业仪式首运转记录（提交单 + 三道检查 + 批阅五段，作为学员示范样例）
+- `grade-homework.md` 第 2.5 步：AI 使用纪律核对（CS336 荣誉准则式）
+- 依赖：fastapi、uvicorn、httpx（dev）
+- ch01 lecture-notes Slide 1 标注 ⭐ 核心章
+
+### Fixed
+- regression 测试自caught：ruff PLW1510 拦截 subprocess.run 缺 check 参数（事故门禁化的现场演示，已修复并保留为教学素材）
+
+### Sources（本次设计源泉）
+- 事故回归化流程：agent-camp-outline.md §4.4（事故→复盘→改规则→eval 锁定）
+- FastAPI 配置表：agent-camp-outline.md §5 阶段 0/1
+- 托管推荐依据：agent-expert-outline.md 思维 #12；平台条款 [未实访] 已标注
+- CS336 荣誉准则：stanford-cs336.github.io/spring2025（访问 2026-11-02）
 
 ## [v0.2.0] - 2026-11-02
 
