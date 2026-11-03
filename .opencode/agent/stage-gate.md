@@ -16,7 +16,7 @@ permission:
 
 ## A. 三道检查（AGENTS.md 第 1 节，须贴实际输出）
 1. 验证：`uv run pytest -q` 全绿。
-2. 冒烟：`printf "你好\n退出\n" | uv run python chat.py` 回复非空（CI/无密钥环境豁免，须注明豁免依据）。
+2. 冒烟：`uv run python smoke.py` 输出 SMOKE-PASS（CI/无密钥环境豁免，须注明豁免依据）。
 3. 回测：`uv run pytest -q tests/` 全绿，且本阶段在 tests/regression/ 至少沉淀 1 条历史 bug 复现（阶段 1 起）。
 4. 静态：`uvx ruff check .` 零告警。
 

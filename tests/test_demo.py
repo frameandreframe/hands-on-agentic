@@ -18,7 +18,7 @@ def client(monkeypatch: pytest.MonkeyPatch) -> TestClient:
 def test_health(client: TestClient) -> None:
     r = client.get("/health")
     assert r.status_code == 200
-    assert r.json() == {"status": "ok", "version": "0.3.0"}
+    assert r.json() == {"status": "ok", "version": "0.4.0"}
 
 
 def test_chat_returns_answer_and_steps(client: TestClient) -> None:

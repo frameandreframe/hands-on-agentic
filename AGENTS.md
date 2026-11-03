@@ -8,7 +8,7 @@
 | 道 | 名称 | 命令 | 含义 |
 |---|---|---|---|
 | ① | 验证 verify | `uv run pytest -q` | 单元/结构测试全绿（不触网、不耗 token） |
-| ② | 冒烟 smoke | `printf "你好\n退出\n" \| uv run python chat.py` | 最小端到端真实调用，回复非空（**仅本地跑，CI 无密钥跳过**） |
+| ② | 冒烟 smoke | `uv run python smoke.py` | 最小端到端真实调用，SMOKE-PASS（**仅本地跑，CI 无密钥跳过**；W3 起用独立脚本替代管道写法） |
 | ③ | 回测 backtest | `uv run pytest -q tests/`（含 regression） | 历史行为不被破坏：每阶段至少沉淀 1 条历史 bug 复现进 `tests/regression/`；阶段 8 升级为 `evals/` 全量用例 |
 
 配套静态检查：`uvx ruff check .`（零告警）。密钥保护检查：`git check-ignore -q .env && echo protected`。

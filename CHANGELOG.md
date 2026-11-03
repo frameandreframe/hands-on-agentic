@@ -9,7 +9,27 @@
 | v0.1.0 | 阶段 0 | 点火：LLM 工具函数 + 小机器人 + 密钥保护 |
 | v0.2.0 | W1 | ReAct 循环 + 门禁机器人 + ch01 课程包 |
 | v0.3.0 | W2 | regression 首批 + demo 服务化 + 托管指导 + 仪式首运转 |
-| v0.4.0 | W3（计划） | 打包构建课 + CHANGELOG 工具链 + AGENTS.md 瘦身复查 |
+| v0.4.0 | W3 | tools 内核 + 打包构建课 + ch02 启动 + smoke.py |
+| v0.5.0 | W4（计划） | ch02 收官（2.3 重试与熔断）+ walkthrough + plan 预备 |
+
+## [v0.4.0] - 2026-11-03
+
+### Added
+- `agent/tools/base.py`（Tool 基类：json_schema/prompt_line）+ `agent/tools/registry.py`（注册表：重名即炸/未知即报/to_callables 一键装配）
+- `tests/test_tools.py`（7 条：含 schema 形状契约与「诚实的坑」用例）
+- `smoke.py`：独立冒烟脚本（退出码可被 harness/CI 消费），替代管道写法；AGENTS.md §1 与 stage-gate A2 同步更新
+- **打包构建落地**：pyproject 增加 hatchling 构建后端 + wheel 白名单（agent/demo/根模块，dev 依赖永不进产物）；`uv build` 实测产出 0.4.0 wheel+sdist
+- 干净环境安装验证：临时 venv 安装 wheel → `from agent.react import parse_block` IMPORT-OK ✅
+- `ch02-tools/`：lecture-notes（9 页，含打包构建课页与 Slide 1 ⭐ 核心章标注）+ 2.1-schema / 2.2-registry-dispatch 两本 notebook + exercises.md（三档 + smolagents 对照 + 卡点预告）
+- AGENTS.md 瘦身复查：66 行（≤200 行纪律达标，思维 #7）
+
+### Fixed
+- 回归双层锁再次生效：ruff 先抓 smoke.py 盲捕获（BLE001）、再抓新 notebook 导入格式（I001）——「事故→门禁→永久回归」链路第三次现场演示
+
+### Sources（本次设计源泉）
+- Building effective agents 附录 2（ACI 三纪律，anthropic.com，访问 2026-11-02）
+- MIT Missing Semester 2026「Packaging and Shipping Code」（missing.csail.mit.edu，访问 2026-11-02）
+- agent-expert-outline.md 思维 #4/#6/#7
 
 ## [v0.3.0] - 2026-11-03
 

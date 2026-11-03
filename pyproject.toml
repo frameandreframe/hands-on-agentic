@@ -1,22 +1,36 @@
 [project]
 name = "hands-on-agentic"
-version = "0.1.0"
+version = "0.4.0"
 description = "动手从 0 构建 Agent —— 阶段 0：点火"
 requires-python = ">=3.10"
 dependencies = [
-    "fastapi>=0.162.0",
     "openai>=1.40",
     "python-dotenv>=1.0",
-    "uvicorn>=0.54.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
 ]
 
 [dependency-groups]
 dev = [
     "pytest>=8",
     "jupyterlab>=4",
-    "httpx>=0.28.1",
+    "httpx>=0.27",
 ]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+# ---- 打包构建（W3 打包课）----
+# hatchling 作为构建后端；wheel 只装「运行时需要的包」，dev 工具不进产物
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent", "demo"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"llm_utils.py" = "llm_utils.py"
+"chat.py" = "chat.py"
+"smoke.py" = "smoke.py"
